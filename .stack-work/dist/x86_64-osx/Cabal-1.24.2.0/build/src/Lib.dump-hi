@@ -1,10 +1,10 @@
 
 ==================== FINAL INTERFACE ====================
-2017-03-09 15:23:12.676817 UTC
+2017-03-14 15:12:21.782856 UTC
 
 interface Haskell-0.1.0.0-7IUwuZF9zdVBM92avZyCTy:Lib 8002
-  interface hash: 08b2d26448e42fb847e3d548720cc598
-  ABI hash: 193e36fc5d00a05d71cd9d8f34c66151
+  interface hash: 67c216659211d0ecfce061f598f21424
+  ABI hash: b0bf5baace48743682c9f8768ec3f287
   export-list hash: a27a4b379a2edcfb7fecd1555d01fd5b
   orphan hash: 693e9af84d3dfcc71e640e005bdc5e2e
   flag hash: f6624f22fcdd76ed0ac6625466e2d712
@@ -272,16 +272,21 @@ b85edcd6408d79b3246e74ec0fa25bbe
                                 @ GHC.Types.Char
                                 Lib.$fShowExt2
                                 (g (GHC.Types.: @ GHC.Types.Char GHC.Show.shows4 x))) } }) -}
+e4db74cd0ca49d1dbaf4281211199e30
+  $wrange ::
+    GHC.Prim.Int#
+    -> GHC.Prim.Int# -> (# GHC.Types.Int, [GHC.Types.Int] #)
+  {- Arity: 2, Strictness: <S,U><S,U>, Inline: [0] -}
 b85edcd6408d79b3246e74ec0fa25bbe
   data Ext a = Multiple (GHC.Types.Int, a) | Single a
 c9610f31d873321c8d74f06ac015f7cc
   data NestedList a = Elem a | List [Lib.NestedList a]
-c21df31293bf99142abff54c1ea8c6b7
+a5d8df435737fed81f5a90ed657d8763
   someFunc :: GHC.Types.IO ()
   {- Arity: 1, Strictness: <S,U>,
      Unfolding: InlineRule (0, True, True)
                 Lib.someFunc1 `cast` (Sym (GHC.Types.N:IO[0] <()>_R)) -}
-128ee7d56a91a954d1277ee084fa8e55
+2b1e91d729d5529c4d75714bd5437c3f
   someFunc1 ::
     GHC.Prim.State# GHC.Prim.RealWorld
     -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
@@ -293,50 +298,21 @@ c21df31293bf99142abff54c1ea8c6b7
                    Lib.someFunc2
                    GHC.Types.True
                    eta) -}
-68e6bf2e1ce6cc22d5b01602839fd0bc
-  someFunc2 :: [GHC.Types.Char]
-  {- Unfolding: (GHC.Types.:
+edfe391bf5f1e96288a5b0cf80637076
+  someFunc2 :: GHC.Base.String
+  {- Unfolding: (case Lib.$wrange 5# 12# of ww { (#,#) ww1 ww2 ->
+                 GHC.Types.:
                    @ GHC.Types.Char
-                   GHC.Show.shows6
-                   Lib.someFunc3) -}
-e7f7859ff1b4926837e63141a7b6fbe6
-  someFunc3 :: GHC.Base.String
-  {- Unfolding: (GHC.Show.showLitString
-                   Lib.someFunc5
-                   Lib.someFunc4) -}
-20502654bca16bcd5e9a6cad52e6dd6e
-  someFunc4 :: [GHC.Types.Char]
-  {- HasNoCafRefs,
-     Unfolding: (GHC.Types.:
-                   @ GHC.Types.Char
-                   GHC.Show.shows6
-                   (GHC.Types.[] @ GHC.Types.Char)) -}
-8e844e79996888432f9a18c21c9f4f8d
-  someFunc5 :: [GHC.Types.Char]
-  {- Unfolding: (GHC.CString.unpackFoldrCString#
-                   @ [GHC.Types.Char]
-                   "abcde"#
-                   Lib.someFunc6
-                   (GHC.Types.[] @ GHC.Types.Char)) -}
-84ee2472072b0e812a74436aca85d95d
-  someFunc6 :: GHC.Types.Char -> [GHC.Types.Char] -> [GHC.Types.Char]
-  {- Arity: 2, HasNoCafRefs,
-     Unfolding: (\ (x :: GHC.Types.Char)
-                   (ys :: [GHC.Types.Char])[OneShot] ->
-                 let {
-                   lvl :: [GHC.Types.Char]
-                   = GHC.Types.: @ GHC.Types.Char x (GHC.Types.[] @ GHC.Types.Char)
-                 } in
-                 letrec {
-                   $wxs :: GHC.Prim.Int# -> [GHC.Types.Char]
-                     {- Arity: 1, Strictness: <S,1*U>, Inline: [0] -}
-                   = \ (ww :: GHC.Prim.Int#) ->
-                     case ww of ds1 {
-                       DEFAULT
-                       -> GHC.Types.: @ GHC.Types.Char x ($wxs (GHC.Prim.-# ds1 1#))
-                       1# -> lvl }
-                 } in
-                 GHC.Base.++ @ GHC.Types.Char ($wxs 3#) ys) -}
+                   GHC.Show.showList__2
+                   (case ww1 of ww3 { GHC.Types.I# ww4 ->
+                    case GHC.Show.$wshowSignedInt
+                           0#
+                           ww4
+                           (Lib.someFunc_showl ww2) of ww5 { (#,#) ww6 ww7 ->
+                    GHC.Types.: @ GHC.Types.Char ww6 ww7 } }) }) -}
+9bfeb930fe722c1b67de4a254f476c87
+  someFunc_showl :: [GHC.Types.Int] -> GHC.Base.String
+  {- Arity: 1, HasNoCafRefs, Strictness: <S,1*U> -}
 instance [safe] GHC.Show.Show [Lib.Ext] = Lib.$fShowExt
 vectorised variables:
 vectorised tycons:

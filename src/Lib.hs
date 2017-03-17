@@ -2,8 +2,10 @@ module Lib
     ( someFunc
     ) where
 
+import System.Random
+
 someFunc :: IO ()
-someFunc = print str where str = repli 3 "abcde"
+someFunc = print str where str = range 5 12
 
 myLast :: [a] -> a
 
@@ -77,4 +79,32 @@ repli :: Int -> [a] -> [a]
 repli c xs = concat $ map (replicate c) xs
 
 dropEvery :: [a] -> Int -> [a]
-dropEvery xs n = dropEvery
+dropEvery xs n = dropEvery' xs n
+    where dropEvery' [] _ = []
+          dropEvery' (x:xs) 1 = dropEvery' xs n
+          dropEvery' (x:xs) k = x : dropEvery' xs (k-1)
+
+split :: [a] -> Int -> ([a], [a])
+split xs n = helper xs n
+    where helper (x:xs) k | k > 0 = let (y, ys) = helper xs (k-1) in (x:y, ys)
+          helper xs _ = ([], xs)
+
+rotate :: [a] -> Int -> [a]
+rotate [] _ = []
+rotate xs 0 = xs
+rotate (x:xs) n | n > 0 = rotate (xs ++ [x]) (n-1)
+rotate xs n | n < 0 = rotate xs (length xs + n)
+
+remove :: [a] -> Int -> (Maybe a, [a])
+remove [] _ = (Nothing, [])
+remove (x:xs) 1 = (Just x, xs)
+remove (x:xs) n = let (y,ys) = remove xs (n-1) in (y, x : ys)
+
+insertAt :: a -> [a] -> Int -> [a]
+insertAt x xs 1 = x:xs
+insertAt x (y:ys) n = y : insertAt x ys (n-1)
+
+range :: Int -> Int -> [Int]
+range i k | i == k = [k]
+range i k | i < k = i : range (i+1) k
+range i k | i > k = i : range (i-1) k
