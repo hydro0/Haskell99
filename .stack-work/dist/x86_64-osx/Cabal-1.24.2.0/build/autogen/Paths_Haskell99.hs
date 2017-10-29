@@ -1,7 +1,7 @@
 {-# LANGUAGE CPP #-}
 {-# OPTIONS_GHC -fno-warn-missing-import-lists #-}
 {-# OPTIONS_GHC -fno-warn-implicit-prelude #-}
-module Paths_Haskell (
+module Paths_Haskell99 (
     version,
     getBinDir, getLibDir, getDynLibDir, getDataDir, getLibexecDir,
     getDataFileName, getSysconfDir
@@ -30,19 +30,19 @@ version = Version [0,1,0,0] []
 bindir, libdir, dynlibdir, datadir, libexecdir, sysconfdir :: FilePath
 
 bindir     = "/Users/orestsavchak/Development/Haskell99/.stack-work/install/x86_64-osx/lts-8.3/8.0.2/bin"
-libdir     = "/Users/orestsavchak/Development/Haskell99/.stack-work/install/x86_64-osx/lts-8.3/8.0.2/lib/x86_64-osx-ghc-8.0.2/Haskell-0.1.0.0"
+libdir     = "/Users/orestsavchak/Development/Haskell99/.stack-work/install/x86_64-osx/lts-8.3/8.0.2/lib/x86_64-osx-ghc-8.0.2/Haskell99-0.1.0.0"
 dynlibdir  = "/Users/orestsavchak/Development/Haskell99/.stack-work/install/x86_64-osx/lts-8.3/8.0.2/lib/x86_64-osx-ghc-8.0.2"
-datadir    = "/Users/orestsavchak/Development/Haskell99/.stack-work/install/x86_64-osx/lts-8.3/8.0.2/share/x86_64-osx-ghc-8.0.2/Haskell-0.1.0.0"
+datadir    = "/Users/orestsavchak/Development/Haskell99/.stack-work/install/x86_64-osx/lts-8.3/8.0.2/share/x86_64-osx-ghc-8.0.2/Haskell99-0.1.0.0"
 libexecdir = "/Users/orestsavchak/Development/Haskell99/.stack-work/install/x86_64-osx/lts-8.3/8.0.2/libexec"
 sysconfdir = "/Users/orestsavchak/Development/Haskell99/.stack-work/install/x86_64-osx/lts-8.3/8.0.2/etc"
 
 getBinDir, getLibDir, getDynLibDir, getDataDir, getLibexecDir, getSysconfDir :: IO FilePath
-getBinDir = catchIO (getEnv "Haskell_bindir") (\_ -> return bindir)
-getLibDir = catchIO (getEnv "Haskell_libdir") (\_ -> return libdir)
-getDynLibDir = catchIO (getEnv "Haskell_dynlibdir") (\_ -> return dynlibdir)
-getDataDir = catchIO (getEnv "Haskell_datadir") (\_ -> return datadir)
-getLibexecDir = catchIO (getEnv "Haskell_libexecdir") (\_ -> return libexecdir)
-getSysconfDir = catchIO (getEnv "Haskell_sysconfdir") (\_ -> return sysconfdir)
+getBinDir = catchIO (getEnv "Haskell99_bindir") (\_ -> return bindir)
+getLibDir = catchIO (getEnv "Haskell99_libdir") (\_ -> return libdir)
+getDynLibDir = catchIO (getEnv "Haskell99_dynlibdir") (\_ -> return dynlibdir)
+getDataDir = catchIO (getEnv "Haskell99_datadir") (\_ -> return datadir)
+getLibexecDir = catchIO (getEnv "Haskell99_libexecdir") (\_ -> return libexecdir)
+getSysconfDir = catchIO (getEnv "Haskell99_sysconfdir") (\_ -> return sysconfdir)
 
 getDataFileName :: FilePath -> IO FilePath
 getDataFileName name = do
