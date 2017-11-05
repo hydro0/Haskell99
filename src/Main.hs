@@ -1,11 +1,12 @@
 module Main where
 import System.Random
+import Data.List (permutations, subsequences)
 
 main :: IO ()
 main = someFunc
 
 someFunc :: IO ()
-someFunc = print str where str = range 5 12
+someFunc = str >>= print where str = return $ group [2, 2, 5] [1..9]
 
 myLast :: [a] -> a
 
@@ -108,3 +109,27 @@ range :: Int -> Int -> [Int]
 range i k | i == k = [k]
 range i k | i < k = i : range (i+1) k
 range i k | i > k = i : range (i-1) k
+
+rnd_select :: [a] -> Int -> IO [a]
+rnd_select xs n = do
+    gen <- getStdGen
+    return $ take n [ xs !! i | i <- randomRs(0, length xs - 1) gen ]
+
+rnd_select_i :: Int -> Int -> IO [Int]
+rnd_select_i n m = rnd_select [1..m] n
+
+rndElem :: [a] -> IO a
+rndElem xs = do
+  index <- randomRIO (0, length xs - 1)
+  return $ xs !! index
+
+rndPermutation :: [a] -> IO [a]
+rndPermutation xs = rndElem . permutations $ xs
+
+combinations :: Int -> [a] -> [[a]]
+--combinations 1 xs = map (\x -> [x]) xs
+--combinations _ [] = []
+--combinations n (x:xs) = (++ combinations n xs) . map (x:) . combinations (n - 1) $ xs
+combinations n xs = filter ((==n) . length) . subsequences $ xs
+
+group :: [Int] -> [a] -> [[[a]]]
