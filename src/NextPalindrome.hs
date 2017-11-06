@@ -2,20 +2,23 @@ module NextPalindrome
     ( solve
     ) where
 
-import Data.List ( reverse, find )
-
+import Data.List ( reverse, find, concat )
+import Data.Char ( intToDigit )
 solve :: String -> String
 solve = show . nextPalindrome . read
 
-nextPalindrome :: Int -> Int
-nextPalindrome n =
-    let (Just next) = find isPalindrome [(n+1)..]
-    in next
+nextPalindrome :: Int -> String
+nextPalindrome n = map intToDigit . nextPalindromeList . digits $ (n + 1)
 
-isPalindrome :: Int -> Bool
-isPalindrome n = reversal n == n
+nextPalindromeList :: [Int] -> [Int]
+nextPalindromeList digs = findNextPalindrome digs (reverse digs)
 
-reversal :: Int -> Int
-reversal = go 0
-  where go a 0 = a
-        go a b = let (q,r) = b `quotRem` 10 in go (a*10 + r) q
+findNextPalindrome :: [Int] -> [Int] -> [Int]
+findNextPalindrome []   = []
+findNextPalindrome [x]  = [x]
+findNextPalindrome []
+
+digits :: Int -> [Int]
+digits n
+    | n < 10    = [n]
+    | otherwise = (n `mod` 10) : digits (n `div` 10)

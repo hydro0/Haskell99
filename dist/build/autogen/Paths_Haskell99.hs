@@ -3,7 +3,7 @@
 {-# OPTIONS_GHC -fno-warn-implicit-prelude #-}
 module Paths_Haskell99 (
     version,
-    getBinDir, getLibDir, getDataDir, getLibexecDir,
+    getBinDir, getLibDir, getDynLibDir, getDataDir, getLibexecDir,
     getDataFileName, getSysconfDir
   ) where
 
@@ -27,17 +27,19 @@ catchIO = Exception.catch
 
 version :: Version
 version = Version [0,1,0,0] []
-bindir, libdir, datadir, libexecdir, sysconfdir :: FilePath
+bindir, libdir, dynlibdir, datadir, libexecdir, sysconfdir :: FilePath
 
 bindir     = "/Users/orestsavchak/Library/Haskell/bin"
-libdir     = "/Users/orestsavchak/Library/Haskell/ghc-8.0.1-x86_64/lib/Haskell99-0.1.0.0"
-datadir    = "/Users/orestsavchak/Library/Haskell/share/ghc-8.0.1-x86_64/Haskell99-0.1.0.0"
+libdir     = "/Users/orestsavchak/Library/Haskell/ghc-8.0.2-x86_64/lib/Haskell99-0.1.0.0"
+dynlibdir  = "/Users/orestsavchak/Library/Haskell/ghc-8.0.2-x86_64/lib/x86_64-osx-ghc-8.0.2"
+datadir    = "/Users/orestsavchak/Library/Haskell/share/ghc-8.0.2-x86_64/Haskell99-0.1.0.0"
 libexecdir = "/Users/orestsavchak/Library/Haskell/libexec"
 sysconfdir = "/Users/orestsavchak/Library/Haskell/etc"
 
-getBinDir, getLibDir, getDataDir, getLibexecDir, getSysconfDir :: IO FilePath
+getBinDir, getLibDir, getDynLibDir, getDataDir, getLibexecDir, getSysconfDir :: IO FilePath
 getBinDir = catchIO (getEnv "Haskell99_bindir") (\_ -> return bindir)
 getLibDir = catchIO (getEnv "Haskell99_libdir") (\_ -> return libdir)
+getDynLibDir = catchIO (getEnv "Haskell99_dynlibdir") (\_ -> return dynlibdir)
 getDataDir = catchIO (getEnv "Haskell99_datadir") (\_ -> return datadir)
 getLibexecDir = catchIO (getEnv "Haskell99_libexecdir") (\_ -> return libexecdir)
 getSysconfDir = catchIO (getEnv "Haskell99_sysconfdir") (\_ -> return sysconfdir)
