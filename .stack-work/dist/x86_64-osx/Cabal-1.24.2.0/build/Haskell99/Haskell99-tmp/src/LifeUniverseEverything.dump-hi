@@ -1,0 +1,65 @@
+
+==================== FINAL INTERFACE ====================
+2017-11-05 19:20:41.667049 UTC
+
+interface main@main:LifeUniverseEverything 8002
+  interface hash: fd85c9748f9af2a523e249a346cc6eba
+  ABI hash: d5d710a1c24d40f636b6ae2c40f2b300
+  export-list hash: 79c1062d0367aac31ac113957f4c4f48
+  orphan hash: 693e9af84d3dfcc71e640e005bdc5e2e
+  flag hash: e8391dde344b558bbf052293f5ecc872
+  sig of: Nothing
+  used TH splices: False
+  where
+exports:
+  LifeUniverseEverything.solve
+module dependencies:
+package dependencies: base-4.9.1.0* ghc-prim-0.5.0.0
+                      integer-gmp-1.0.0.1
+orphans: base-4.9.1.0:GHC.Base base-4.9.1.0:GHC.Float
+family instance modules: base-4.9.1.0:Control.Applicative
+                         base-4.9.1.0:Data.Either base-4.9.1.0:Data.Functor.Const
+                         base-4.9.1.0:Data.Monoid base-4.9.1.0:Data.Type.Equality
+                         base-4.9.1.0:GHC.Generics base-4.9.1.0:GHC.IO.Exception
+                         base-4.9.1.0:GHC.TypeLits
+import  -/  base-4.9.1.0:GHC.Base c4231c43c07e46080a26bf94094c7aa1
+import  -/  base-4.9.1.0:GHC.Show a027f5ac24879eaba752f44aa90fe511
+import  -/  base-4.9.1.0:Prelude 22dd289b8469a8fa8dc81cab7b237771
+import  -/  base-4.9.1.0:System.IO c9de64c5f5407c4cf1c52500c4d15200
+import  -/  base-4.9.1.0:Text.Read 75c59863e882ebaec4532e9465e2ee9b
+import  -/  ghc-prim-0.5.0.0:GHC.Classes 0bdf3d057a415ec1b84a7b1994efbe47
+import  -/  ghc-prim-0.5.0.0:GHC.Types 89f8de4f08018c9177c98d979eae0e45
+4693c72ba1c68e18ff967192ad04462f
+  $trModule :: GHC.Types.Module
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.Module
+                   LifeUniverseEverything.$trModule2
+                   LifeUniverseEverything.$trModule1) -}
+46811dd1d2280a5407efbe3ffd4e984f
+  $trModule1 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS "LifeUniverseEverything"#) -}
+7483536042404fd9ec1a355a2be72b51
+  $trModule2 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS "main"#) -}
+67353223bf3108382ce426018e5c373b
+  solve :: GHC.Types.IO ()
+  {- Arity: 1, Strictness: <S,U>,
+     Unfolding: InlineRule (0, True, True)
+                LifeUniverseEverything.solve1
+                  `cast`
+                (Sym (GHC.Types.N:IO[0] <()>_R)) -}
+7d59713ba291d3e90144a38f6f6974fb
+  solve1 ::
+    GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
+  {- Arity: 1, Strictness: <S,U> -}
+vectorised variables:
+vectorised tycons:
+vectorised reused tycons:
+parallel variables:
+parallel tycons:
+trusted: safe
+require own pkg trusted: False
+

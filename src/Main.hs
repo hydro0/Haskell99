@@ -1,12 +1,31 @@
 module Main where
 import System.Random
 import Data.List (permutations, subsequences)
+import PrimeGenerator as PG
+import LifeUniverseEverything as LUE
+import RPN
+import NextPalindrome as NP
 
 main :: IO ()
-main = someFunc
+main = solveWithCounter NP.solve
 
-someFunc :: IO ()
-someFunc = str >>= print where str = return $ group [2, 2, 5] [1..9]
+solveWithCounter :: (String -> String) -> IO ()
+solveWithCounter f = do
+    c <- getLine
+    printResults f $ read c
+
+printResults :: (String -> String) -> Int -> IO ()
+printResults _ 0 = return ()
+printResults f n = do
+    line <- getLine
+    let rpn = f line
+    putStrLn rpn
+    printResults f (n - 1)
+
+--main = someFunc
+
+--someFunc :: IO ()
+--someFunc = str >>= print where str = return $ group [2, 2, 5] [1..9]
 
 myLast :: [a] -> a
 
@@ -132,4 +151,4 @@ combinations :: Int -> [a] -> [[a]]
 --combinations n (x:xs) = (++ combinations n xs) . map (x:) . combinations (n - 1) $ xs
 combinations n xs = filter ((==n) . length) . subsequences $ xs
 
-group :: [Int] -> [a] -> [[[a]]]
+--group :: [Int] -> [a] -> [[[a]]]
