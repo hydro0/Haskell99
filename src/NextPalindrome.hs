@@ -3,20 +3,35 @@ module NextPalindrome
     ) where
 
 import Data.List ( reverse, find, concat )
-import Data.Char ( intToDigit )
+import Data.Char ( intToDigit, digitToInt )
 solve :: String -> String
-solve = show . nextPalindrome . read
+solve = nextPalindrome
 
-nextPalindrome :: Int -> String
-nextPalindrome n = map intToDigit . nextPalindromeList . digits $ (n + 1)
+nextPalindrome :: String -> String
+nextPalindrome = map intToDigit . nextPalindromeList . increment . map digitToInt
 
 nextPalindromeList :: [Int] -> [Int]
-nextPalindromeList digs = findNextPalindrome digs (reverse digs)
+nextPalindromeList digits = findNextPalindrome (reverse h2) h1
+    where (h1, h2) = splitAt (half digits) digits
+
+half :: [a] -> Int
+half xs = length xs `div` 2
 
 findNextPalindrome :: [Int] -> [Int] -> [Int]
-findNextPalindrome []   = []
-findNextPalindrome [x]  = [x]
-findNextPalindrome []
+findNextPalindrome [] _         = []
+findNextPalindrome xs []        = xs
+findNextPalindrome digs rDigs   =
+    let first   = head digs
+        last    = head rDigs
+        recur   = if first <= last then last : findNextPalindrome (tail digs) (tail rDigs) ++ [last]
+        else nextPalindromeList . increment $ rDigs ++ reverse digs
+    in recur
+
+increment :: [Int] -> [Int]
+increment []        = [1]
+increment (x:xs)    =
+    let inc = x + 1
+    in if inc < 10 then inc:xs else 0:increment xs
 
 digits :: Int -> [Int]
 digits n
