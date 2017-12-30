@@ -1,0 +1,250 @@
+
+==================== FINAL INTERFACE ====================
+2017-12-24 17:22:40.799226 UTC
+
+interface main@main:PrimeGenerator 8002
+  interface hash: 3a36b9e4e9d518341b589f87a8f3dd8a
+  ABI hash: b40bd086bad70f264b8ced545dda7682
+  export-list hash: 8ddf525f9c611a8b8fbf6acac5c43572
+  orphan hash: 693e9af84d3dfcc71e640e005bdc5e2e
+  flag hash: e8391dde344b558bbf052293f5ecc872
+  sig of: Nothing
+  used TH splices: False
+  where
+exports:
+  PrimeGenerator.solve
+module dependencies:
+package dependencies: base-4.9.1.0* ghc-prim-0.5.0.0
+                      integer-gmp-1.0.0.1
+orphans: base-4.9.1.0:GHC.Base base-4.9.1.0:GHC.Float
+family instance modules: base-4.9.1.0:Control.Applicative
+                         base-4.9.1.0:Data.Either base-4.9.1.0:Data.Functor.Const
+                         base-4.9.1.0:Data.Monoid base-4.9.1.0:Data.Type.Equality
+                         base-4.9.1.0:GHC.Generics base-4.9.1.0:GHC.IO.Exception
+                         base-4.9.1.0:GHC.TypeLits
+import  -/  base-4.9.1.0:Data.Foldable 3e0b6967a1da89945d0e2d47266337a2
+import  -/  base-4.9.1.0:Data.Functor 5ab1dc703df5b482e77efb697833ca3c
+import  -/  base-4.9.1.0:Data.List 07ae2acca6538aa0800bd0a993ac6ac1
+import  -/  base-4.9.1.0:Data.OldList 27987919d8da2f92e3f472ca81f730f8
+import  -/  base-4.9.1.0:GHC.Base c4231c43c07e46080a26bf94094c7aa1
+import  -/  base-4.9.1.0:GHC.Float 33e2b9ffe427edd6a5c2fd6a3b26703c
+import  -/  base-4.9.1.0:GHC.Real 82e4e59051a13dba1da63e1e970a69e6
+import  -/  base-4.9.1.0:GHC.Show a027f5ac24879eaba752f44aa90fe511
+import  -/  base-4.9.1.0:Prelude 22dd289b8469a8fa8dc81cab7b237771
+import  -/  base-4.9.1.0:Text.Read 75c59863e882ebaec4532e9465e2ee9b
+import  -/  ghc-prim-0.5.0.0:GHC.Classes 0bdf3d057a415ec1b84a7b1994efbe47
+54c7b532256da6af8af36c4046d8ecc4
+  $trModule :: GHC.Types.Module
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.Module
+                   PrimeGenerator.$trModule2
+                   PrimeGenerator.$trModule1) -}
+ef147346e43ebb9a29706d26498e2e0e
+  $trModule1 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS "PrimeGenerator"#) -}
+bacad8310be7657b39048509a08f5e1e
+  $trModule2 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS "main"#) -}
+88e395ab8dd8f21c0dd9b15a2dd57f16
+  $wisPrime :: GHC.Prim.Int# -> GHC.Types.Bool
+  {- Arity: 1, Strictness: <S,1*U>, Inline: [0],
+     Unfolding: (\ (ww :: GHC.Prim.Int#) ->
+                 case ww of ds {
+                   DEFAULT
+                   -> let {
+                        x :: GHC.Prim.Double#
+                        = GHC.Prim.sqrtDouble# (GHC.Prim.int2Double# ds)
+                      } in
+                      let {
+                        n :: GHC.Prim.Int# = GHC.Prim.double2Int# x
+                      } in
+                      let {
+                        $j :: GHC.Prim.Int# -> [GHC.Types.Int]
+                          {- Arity: 1, Strictness: <S,U> -}
+                        = \ (y :: GHC.Prim.Int#)[OneShot] ->
+                          case GHC.Prim.tagToEnum#
+                                 @ GHC.Types.Bool
+                                 (GHC.Prim.># 2# y) of wild {
+                            GHC.Types.False
+                            -> letrec {
+                                 lvl :: [GHC.Types.Int]
+                                 = GHC.Types.: @ GHC.Types.Int PrimeGenerator.solve3 lvl1
+                                 go :: GHC.Prim.Int# -> [GHC.Types.Int]
+                                   {- Arity: 1, Strictness: <S,1*U> -}
+                                 = \ (x1 :: GHC.Prim.Int#) ->
+                                   case x1 of wild1 {
+                                     DEFAULT
+                                     -> case GHC.Classes.modInt# ds wild1 of ww2 {
+                                          DEFAULT
+                                          -> case GHC.Prim.tagToEnum#
+                                                    @ GHC.Types.Bool
+                                                    (GHC.Prim.==# wild1 y) of wild2 {
+                                               GHC.Types.False -> go (GHC.Prim.+# wild1 1#)
+                                               GHC.Types.True -> GHC.Types.[] @ GHC.Types.Int }
+                                          0#
+                                          -> GHC.Types.:
+                                               @ GHC.Types.Int
+                                               (GHC.Types.I# wild1)
+                                               (case GHC.Prim.tagToEnum#
+                                                       @ GHC.Types.Bool
+                                                       (GHC.Prim.==# wild1 y) of wild2 {
+                                                  GHC.Types.False -> go (GHC.Prim.+# wild1 1#)
+                                                  GHC.Types.True
+                                                  -> GHC.Types.[] @ GHC.Types.Int }) }
+                                     -1# -> lvl
+                                     0# -> case GHC.Real.divZeroError ret_ty [GHC.Types.Int] of {} }
+                                 lvl1 :: [GHC.Types.Int]
+                                 = case y of wild1 {
+                                     DEFAULT -> go 0# -1# -> GHC.Types.[] @ GHC.Types.Int }
+                               } in
+                               go 2#
+                            GHC.Types.True -> GHC.Types.[] @ GHC.Types.Int }
+                      } in
+                      case GHC.Prim.tagToEnum#
+                             @ GHC.Types.Bool
+                             (GHC.Prim.<## x (GHC.Prim.int2Double# n)) of wild1 {
+                        GHC.Types.False
+                        -> case $j n of wild {
+                             [] -> GHC.Types.True : ds1 ds2 -> GHC.Types.False }
+                        GHC.Types.True
+                        -> case $j (GHC.Prim.-# n 1#) of wild {
+                             [] -> GHC.Types.True : ds1 ds2 -> GHC.Types.False } }
+                   1# -> GHC.Types.False
+                   2# -> GHC.Types.True }) -}
+9812a42acaedd7037aae4c1ed99dedba
+  solve :: GHC.Base.String -> GHC.Base.String
+  {- Arity: 1, Strictness: <S,1*U>,
+     Unfolding: (\ (l :: GHC.Base.String) ->
+                 case Data.OldList.wordsFB
+                        @ [GHC.Types.Int]
+                        PrimeGenerator.solve5
+                        (GHC.Types.[] @ GHC.Types.Int)
+                        l of wild {
+                   [] -> case PrimeGenerator.solve4 ret_ty [GHC.Types.Char] of {}
+                   : a ds
+                   -> case ds of wild1 {
+                        [] -> case PrimeGenerator.solve4 ret_ty [GHC.Types.Char] of {}
+                        : b ds1
+                        -> case a of ww { GHC.Types.I# ww1 ->
+                           case b of ww2 { GHC.Types.I# ww3 ->
+                           case GHC.Prim.tagToEnum#
+                                  @ GHC.Types.Bool
+                                  (GHC.Prim.># ww1 ww3) of wild2 {
+                             GHC.Types.False
+                             -> case GHC.Prim.tagToEnum#
+                                       @ GHC.Types.Bool
+                                       (GHC.Prim.==# ww1 ww3) of wild3 {
+                                  GHC.Types.False
+                                  -> letrec {
+                                       go :: GHC.Prim.Int# -> [[GHC.Types.Char]]
+                                         {- Arity: 1, Strictness: <S,U> -}
+                                       = \ (x :: GHC.Prim.Int#) ->
+                                         case PrimeGenerator.$wisPrime x of wild4 {
+                                           GHC.Types.False
+                                           -> case GHC.Prim.tagToEnum#
+                                                     @ GHC.Types.Bool
+                                                     (GHC.Prim.==# x ww3) of wild5 {
+                                                GHC.Types.False -> go (GHC.Prim.+# x 1#)
+                                                GHC.Types.True -> GHC.Types.[] @ [GHC.Types.Char] }
+                                           GHC.Types.True
+                                           -> GHC.Types.:
+                                                @ [GHC.Types.Char]
+                                                (case GHC.Show.$wshowSignedInt
+                                                        0#
+                                                        x
+                                                        (GHC.Types.[]
+                                                           @ GHC.Types.Char) of ww4 { (#,#) ww5 ww6 ->
+                                                 GHC.Types.: @ GHC.Types.Char ww5 ww6 })
+                                                (case GHC.Prim.tagToEnum#
+                                                        @ GHC.Types.Bool
+                                                        (GHC.Prim.==# x ww3) of wild5 {
+                                                   GHC.Types.False -> go (GHC.Prim.+# x 1#)
+                                                   GHC.Types.True
+                                                   -> GHC.Types.[] @ [GHC.Types.Char] }) }
+                                     } in
+                                     case go ww1 of wild4 {
+                                       [] -> PrimeGenerator.solve2
+                                       : x xs1
+                                       -> GHC.Base.++
+                                            @ GHC.Types.Char
+                                            (Data.OldList.intercalate_$spoly_go
+                                               @ GHC.Types.Char
+                                               x
+                                               (Data.OldList.prependToAll
+                                                  @ [GHC.Types.Char]
+                                                  PrimeGenerator.solve2
+                                                  xs1))
+                                            PrimeGenerator.solve2 }
+                                  GHC.Types.True
+                                  -> case PrimeGenerator.$wisPrime ww1 of wild4 {
+                                       GHC.Types.False -> PrimeGenerator.solve2
+                                       GHC.Types.True
+                                       -> GHC.Base.++
+                                            @ GHC.Types.Char
+                                            (Data.OldList.intercalate_$spoly_go
+                                               @ GHC.Types.Char
+                                               (case GHC.Show.$wshowSignedInt
+                                                       0#
+                                                       ww1
+                                                       (GHC.Types.[]
+                                                          @ GHC.Types.Char) of ww4 { (#,#) ww5 ww6 ->
+                                                GHC.Types.: @ GHC.Types.Char ww5 ww6 })
+                                               PrimeGenerator.solve1)
+                                            PrimeGenerator.solve2 } }
+                             GHC.Types.True -> PrimeGenerator.solve2 } } } } }) -}
+49e42dd9e035fc694b9e96ea4ff1b161
+  solve1 :: [[GHC.Types.Char]]
+  {- Unfolding: (Data.OldList.prependToAll
+                   @ [GHC.Types.Char]
+                   PrimeGenerator.solve2
+                   (GHC.Types.[] @ [GHC.Types.Char])) -}
+1af722f11d28989a0e76632d56f2559d
+  solve2 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "\n"#) -}
+223023329ccd894432ab1dcf81bbbf33
+  solve3 :: GHC.Types.Int
+  {- HasNoCafRefs, Unfolding: (GHC.Types.I# -1#) -}
+42a7c72286263f996c43e3be06c348af
+  solve4 :: (GHC.Types.Int, GHC.Types.Int)
+  {- Strictness: x -}
+9002f3f9bc3743476e1b974fdedd4790
+  solve5 :: [GHC.Types.Char] -> [GHC.Types.Int] -> [GHC.Types.Int]
+  {- Arity: 2,
+     Unfolding: (\ (x :: [GHC.Types.Char])
+                   (ys :: [GHC.Types.Int])[OneShot] ->
+                 GHC.Types.:
+                   @ GHC.Types.Int
+                   (case Text.Read.readEither6
+                           @ GHC.Types.Int
+                           (Text.ParserCombinators.ReadP.run
+                              @ GHC.Types.Int
+                              PrimeGenerator.solve8
+                              x) of wild {
+                      [] -> PrimeGenerator.solve7
+                      : x1 ds
+                      -> case ds of wild1 {
+                           [] -> x1 : ipv ipv1 -> PrimeGenerator.solve6 } })
+                   ys) -}
+59e5e3d36a0f3c41314a0ea0f3bf9323
+  solve6 :: GHC.Types.Int
+  {- Strictness: x -}
+4585da5ea810ade23412d10d9ba6dc81
+  solve7 :: GHC.Types.Int
+  {- Strictness: x -}
+e880da39786d85b0fbb8a02a545edab8
+  solve8 :: Text.ParserCombinators.ReadP.P GHC.Types.Int
+  {- Unfolding: (GHC.Read.$fReadInt3
+                   GHC.Read.$fReadInt_$sconvertInt
+                   Text.ParserCombinators.ReadPrec.minPrec
+                   @ GHC.Types.Int
+                   (Text.Read.readEither5 @ GHC.Types.Int)) -}
+vectorised variables:
+vectorised tycons:
+vectorised reused tycons:
+parallel variables:
+parallel tycons:
+trusted: safe
+require own pkg trusted: False
+

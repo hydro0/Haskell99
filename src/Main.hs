@@ -5,9 +5,11 @@ import PrimeGenerator as PG
 import LifeUniverseEverything as LUE
 import RPN
 import NextPalindrome as NP
+import AddingReversedNumbers as ARN
+import BTSFactorial as BTS
 
 main :: IO ()
-main = solveWithCounter NP.solve
+main = solveWithCounter BTS.solve
 
 solveWithCounter :: (String -> String) -> IO ()
 solveWithCounter f = do
