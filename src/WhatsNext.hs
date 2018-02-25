@@ -11,7 +11,7 @@ main = do
 data Progression = GP Int | AP Int
 
 solve :: Int -> Int -> Int -> IO ()
-solve 0 0 0 = return $ ()
+solve 0 0 0 = return ()
 solve a b c = let p  = findProgression a b c
                   n  = next p c
                   r  = show p ++ " " ++ show n

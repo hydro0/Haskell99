@@ -56,7 +56,7 @@ myReverse [x] = [x]
 myReverse (x:xs) = myReverse xs ++ [x]
 
 isPalindrome :: (Eq a) => [a] -> Bool
-isPalindrome xs = xs == (myReverse xs)
+isPalindrome xs = xs == myReverse xs
 
 data NestedList a = Elem a | List [NestedList a]
 myFlatten :: NestedList a -> [a]
@@ -90,15 +90,15 @@ encode_mod xs = let ext (1, x) = Single x
 decode_mod :: [Ext a] -> [a]
 decode_mod xs = let dec (Single a) = [a]
                     dec (Multiple (c, a)) = replicate c a
-                in concat $ map dec xs
+                in concatMap dec xs
 
 dupl :: [a] -> [a]
 dupl [] = []
 dupl [x] = [x, x]
-dupl (x:xs) = x:x:(dupl xs)
+dupl (x:xs) = x : x : dupl xs
 
 repli :: Int -> [a] -> [a]
-repli c xs = concat $ map (replicate c) xs
+repli c = concatMap (replicate c)
 
 dropEvery :: [a] -> Int -> [a]
 dropEvery xs n = dropEvery' xs n
@@ -107,9 +107,8 @@ dropEvery xs n = dropEvery' xs n
           dropEvery' (x:xs) k = x : dropEvery' xs (k-1)
 
 split :: [a] -> Int -> ([a], [a])
-split xs n = helper xs n
-    where helper (x:xs) k | k > 0 = let (y, ys) = helper xs (k-1) in (x:y, ys)
-          helper xs _ = ([], xs)
+split (x:xs) k | k > 0 = let (y, ys) = split xs (k-1) in (x:y, ys)
+split xs _ = ([], xs)
 
 rotate :: [a] -> Int -> [a]
 rotate [] _ = []
@@ -145,12 +144,12 @@ rndElem xs = do
   return $ xs !! index
 
 rndPermutation :: [a] -> IO [a]
-rndPermutation xs = rndElem . permutations $ xs
+rndPermutation = rndElem . permutations
 
 combinations :: Int -> [a] -> [[a]]
 --combinations 1 xs = map (\x -> [x]) xs
 --combinations _ [] = []
 --combinations n (x:xs) = (++ combinations n xs) . map (x:) . combinations (n - 1) $ xs
-combinations n xs = filter ((==n) . length) . subsequences $ xs
+combinations n = filter ((==n) . length) . subsequences
 
 --group :: [Int] -> [a] -> [[[a]]]
